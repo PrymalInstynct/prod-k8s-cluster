@@ -40,10 +40,20 @@ spec:
       defaultEnable: true
       namespaceSelector:
         matchNames:
+          - authentication
+          - databases
           - default
+          - downloaders
           - flux-system
+          - kube-tools
+          - longhorn-system
+          - media-automation
+          - media-servers
           - monitoring
           - networking
+          - splunk-enterprise
+          - storage
+          - web-tools
     ingress:
       main:
         enabled: true
