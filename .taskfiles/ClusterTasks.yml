@@ -87,3 +87,15 @@ tasks:
       - task: certificates
       - task: ingresses
       - task: pods
+
+  top:
+    desc: Show the resource utilization of all nodes
+    cmds:
+      - kubectl top nodes
+
+  monitor:
+    desc: Things to monitor while deploying/patching
+    cmds:
+      - task: kustomizations
+      - task: helmreleases
+      - task: top
