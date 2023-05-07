@@ -29,13 +29,70 @@ spec:
   values:
     hajimari:
       title: Apps
+      lightTheme: horizon
       darkTheme: espresso
       alwaysTargetBlank: true
       showGreeting: false
       showAppGroups: false
       showAppStatus: false
-      showBookmarkGroups: false
-      showGlobalBookmarks: false
+      showBookmarks: true
+      showBookmarkGroups: true
+      showGlobalBookmarks: true
+      globalBookmarks:
+        - group: Home Lab
+          bookmarks:
+            - name: Xen Orchestra
+              url: "https://xoa.${SECRET_PRIVATE_DOMAIN}"
+            - name: Proxmox
+              url: "https://10.10.1.10:8006/"
+            - name: Unifi Controller
+              url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
+            - name: NAS
+              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5000"
+            - name: MinIO
+              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:9001"
+            - name: AdGuard Home
+              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5300/#"
+            - name: Print
+              url: "https://print.${SECRET_PRIVATE_DOMAIN}"
+        - group: Dev
+          bookmarks:
+            - name: GitHub
+              url: "https://github.com/PrymalInstynct?tab=repositories"
+            - name: Material Design Icons
+              url: "https://materialdesignicons.com"
+            - name: Codepen
+              url: "https://codepen.io"
+            - name: Devdocs
+              url: "https://devdocs.io"
+            - name: Devhints
+              url: "https://devhints.io"
+        - group: Google
+          bookmarks:
+            - name: Gmail
+              url: "https://gmail.com"
+            - name: Drive
+              url: "https://drive.google.com"
+        - group: Media
+          bookmarks:
+            - name: Spotify
+              url: "https://open.spotify.com"
+            - name: YouTube
+              url: "https://youtube.com/feed/subscriptions"
+            - name: Netflix
+              url: "https://www.netflix.com"
+        - group: Cyber Security
+          bookmarks:
+            - name: The Hacker News
+              url: "https://thehackernews.com/"
+            - name: picoCTF
+              url: "https://picoctf.org/"
+            - name: Detection Lab
+              url: "https://github.com/clong/DetectionLab"
+        - group: Work
+          bookmarks:
+            - name: LMPassage
+              url: "https://lmpassage3.external.lmco.com/"
       showAppUrls: false
       defaultEnable: true
       namespaceSelector:
