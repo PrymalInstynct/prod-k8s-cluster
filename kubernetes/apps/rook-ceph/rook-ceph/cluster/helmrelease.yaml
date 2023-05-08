@@ -53,21 +53,21 @@ spec:
       resources:
         mgr:
           limits:
-            cpu: "1000m"
+            cpu: "750m"
             memory: "1Gi"
           requests:
             cpu: "500m"
             memory: "512Mi"
         mon:
           limits:
-            cpu: "2000m"
+            cpu: "1500m"
             memory: "2Gi"
           requests:
             cpu: "500m"
             memory: "1Gi"
         osd:
           limits:
-            cpu: "2000m"
+            cpu: "1500m"
             memory: "4Gi"
           requests:
             cpu: "500m"
@@ -144,7 +144,7 @@ spec:
             resources:
               requests:
                 cpu: 250m
-                memory: 4Gi
+                memory: 2Gi
               limits:
                 memory: 4Gi
         storageClass:
