@@ -5,9 +5,3 @@ kind: Kustomization
 namespace: kube-system
 resources:
   - ./helmrelease.yaml
-secretGenerator:
-  - name: connect.credentials
-    files:
-      - 1password-credentials.json=secret.sops.json
-generatorOptions:
-  disableNameSuffixHash: true
