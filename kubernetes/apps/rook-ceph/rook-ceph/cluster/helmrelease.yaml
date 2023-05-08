@@ -71,34 +71,19 @@ spec:
         nodes:
           - name: "k8s-control-prod-0"
             devices:
-              - name: "nvme0n1"
+              - name: "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W321160W"
           - name: "k8s-control-prod-1"
             devices:
-              - name: "nvme0n1"
+              - name: "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W328160V"
           - name: "k8s-control-prod-2"
             devices:
-              - name: "nvme0n1"
+              - name: "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W315870Y"
           - name: "k8s-worker-prod-3"
             devices:
-              - name: "nvme0n1"
+              - name: "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W332522L"
           - name: "k8s-worker-prod-4"
             devices:
-              - name: "nvme0n1"
-          # - name: "10.10.1.10"
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W321160W
-          # - name: "10.10.1.11"
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W328160V
-          # - name: "10.10.1.12"
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W315870Y
-          # - name: "10.10.1.13"
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W332522L
-          # - name: "10.10.1.14"
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W316958T
+              - name: "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W316958T"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
