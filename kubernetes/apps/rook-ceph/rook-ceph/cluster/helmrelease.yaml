@@ -69,19 +69,19 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: k8s-control-prod-0
+          - name: "10.10.1.10"
             devices:
               - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W321160W
-          - name: k8s-control-prod-1
+          - name: "10.10.1.11"
             devices:
               - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W328160V
-          - name: k8s-control-prod-2
+          - name: "10.10.1.12"
             devices:
               - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W315870Y
-          - name: k8s-worker-prod-3
+          - name: "10.10.1.13"
             devices:
               - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W332522L
-          - name: k8s-worker-prod-4
+          - name: "10.10.1.14"
             devices:
               - name: /dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S64ANS0W316958T
     cephBlockPools:
