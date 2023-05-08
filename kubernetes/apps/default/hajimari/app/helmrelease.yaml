@@ -108,7 +108,7 @@ spec:
           - media-servers
           - monitoring
           - networking
-          - splunk-enterprise
+          - rook-ceph
           - storage
           - web-tools
     ingress:
