@@ -50,6 +50,28 @@ spec:
       bdev_async_discard = true
       osd_class_update_on_start = false
     cephClusterSpec:
+      resources:
+        mgr:
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+        mon:
+          limits:
+            cpu: "2000m"
+            memory: "2Gi"
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+        osd:
+          limits:
+            cpu: "2000m"
+            memory: "4Gi"
+          requests:
+            cpu: "500m"
+            memory: "2Gi"
       network:
         provider: host
         connections:
@@ -121,7 +143,7 @@ spec:
             activeStandby: true
             resources:
               requests:
-                cpu: 1000m
+                cpu: 250m
                 memory: 4Gi
               limits:
                 memory: 4Gi
@@ -157,7 +179,7 @@ spec:
             port: 80
             resources:
               requests:
-                cpu: 1000m
+                cpu: 250m
                 memory: 1Gi
               limits:
                 memory: 2Gi
