@@ -10,4 +10,4 @@ resources:
   - ./radarr-hd/ks.yaml
   - ./sonarr-hd/ks.yaml
   - ./theme-park/ks.yaml
-  # - ./unpackerr-hd/ks.yaml
+  - ./unpackerr-hd/ks.yaml
