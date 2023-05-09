@@ -13,6 +13,7 @@ resources:
   - ./radarr-hd/ks.yaml
   - ./radarr-uhd/ks.yaml
   - ./recyclarr-hd/ks.yaml
+  - ./recyclarr-uhd/ks.yaml
   - ./sonarr-hd/ks.yaml
   - ./sonarr-uhd/ks.yaml
   - ./theme-park/ks.yaml
