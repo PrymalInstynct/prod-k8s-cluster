@@ -37,6 +37,9 @@ spec:
       TZ: ${TIME_ZONE}
     service:
       main:
+        type: LoadBalancer
+        externalIPs: ["10.10.1.101"]
+        externalTrafficPolicy: Local
         ports:
           http:
             port: 32400
