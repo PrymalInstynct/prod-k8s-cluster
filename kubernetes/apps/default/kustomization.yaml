@@ -8,6 +8,7 @@ resources:
   - ./kubernetes-schemas/ks.yaml
   - ./media-browser/ks.yaml
   - ./overseerr/ks.yaml
+  - ./plex/ks.yml
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./radarr-hd/ks.yaml
