@@ -74,6 +74,7 @@ spec:
             proxy_set_header Accept-Encoding "";
             sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_DOMAIN}/css/base/radarr/nord.css"></head>';
             sub_filter_once on;
+          hajimari.io/appName: "Radarr HD"
           hajimari.io/icon: mdi:filmstrip
         hosts:
           - host: *host
