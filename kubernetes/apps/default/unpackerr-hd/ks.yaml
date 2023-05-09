@@ -8,9 +8,8 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-lidarr
-    - name: cluster-apps-radarr
-    - name: cluster-apps-sonarr
+    - name: cluster-apps-radarr-hd
+    - name: cluster-apps-sonarr-hd
   path: ./kubernetes/apps/default/unpackerr-hd/app
   prune: true
   sourceRef:
