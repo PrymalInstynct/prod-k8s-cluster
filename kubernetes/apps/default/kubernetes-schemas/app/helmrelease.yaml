@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app theme-park
+  name: &app kubernetes-schemas
   namespace: default
 spec:
   interval: 15m
@@ -31,8 +31,8 @@ spec:
       replicas: 2
       strategy: RollingUpdate
     image:
-      repository: ghcr.io/onedr0p/theme-park
-      tag: 1.13.6@sha256:5f0a11766966429501e62f58e31a0dd422caf6f0100ad078c469f4e8379c89ae
+      repository: ghcr.io/onedr0p/kubernetes-schemas-web
+      tag: latest@sha256:db00d5e781f1e9d6f54eeeba646156d0c28cdf5127d43075e15d13d9cbc5217a
     service:
       main:
         ports:
@@ -44,7 +44,7 @@ spec:
         ingressClassName: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
-          hajimari.io/enable: "false"
+          hajimari.io/icon: mdi:code-json
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
@@ -62,7 +62,7 @@ spec:
             app.kubernetes.io/name: *app
     resources:
       requests:
-        cpu: 5m
-        memory: 10Mi
-      limits:
+        cpu: 10m
         memory: 50Mi
+      limits:
+        memory: 100Mi
