@@ -46,7 +46,6 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
           hajimari.io/appname: "Overseerr"
           hajimari.io/icon: mdi:eye-circle
         hosts:
