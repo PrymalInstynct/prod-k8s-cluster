@@ -8,6 +8,6 @@ resources:
   - ./prowlarr/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./radarr-hd/ks.yaml
-  # - ./sonarr/ks.yaml
+  - ./sonarr-hd/ks.yaml
   - ./theme-park/ks.yaml
-  # - ./unpackerr/ks.yaml
+  # - ./unpackerr-hd/ks.yaml
