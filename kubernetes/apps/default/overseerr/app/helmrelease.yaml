@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app kubernetes-schemas
+  name: overseerr
   namespace: default
 spec:
   interval: 15m
@@ -28,41 +28,49 @@ spec:
     keepHistory: false
   values:
     controller:
-      replicas: 2
-      strategy: RollingUpdate
+      type: statefulset
     image:
-      repository: ghcr.io/onedr0p/kubernetes-schemas-web
-      tag: latest@sha256:db00d5e781f1e9d6f54eeeba646156d0c28cdf5127d43075e15d13d9cbc5217a
+      repository: ghcr.io/sct/overseerr
+      tag: 1.32.5
+    env:
+      TZ: ${TIME_ZONE}
+      LOG_LEVEL: "info"
+      PORT: &port 80
     service:
       main:
         ports:
           http:
-            port: 8080
+            port: *port
     ingress:
       main:
         enabled: true
         ingressClassName: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
-          hajimari.io/icon: mdi:code-json
+          hajimari.io/appname: "Overseerr"
+          hajimari.io/icon: mdi:eye-circle
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: &host requests.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
               - *host
-    topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app.kubernetes.io/name: *app
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /app/config
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: ceph-block
     resources:
       requests:
         cpu: 10m
-        memory: 50Mi
+        memory: 250Mi
       limits:
-        memory: 100Mi
+        memory: 1500Mi
