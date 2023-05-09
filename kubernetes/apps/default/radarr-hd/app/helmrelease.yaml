@@ -99,8 +99,8 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: expanse.turbo.ac
-        path: /eros/Media
+        server: "scorpion.${SECRET_PRIVATE_DOMAIN}"
+        path: /volume1/data/media
         mountPath: /media
       scripts:
         enabled: true
