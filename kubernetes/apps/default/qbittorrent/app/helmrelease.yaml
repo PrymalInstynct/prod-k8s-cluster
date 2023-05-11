@@ -46,7 +46,7 @@ spec:
       bittorrent:
         enabled: true
         type: LoadBalancer
-        externalIPs: ["10.10.1.103"]
+        externalIPs: ["10.10.1.101"]
         ports:
           bittorrent:
             enabled: true
