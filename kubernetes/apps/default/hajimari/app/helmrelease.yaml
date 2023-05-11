@@ -47,6 +47,8 @@ spec:
               url: "https://10.10.1.10:8006/"
             - name: Unifi Controller
               url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
+            - name: Cloudflare
+              url: "https://dash.cloudflare.com/login"
             - name: NAS
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5000"
             - name: MinIO
