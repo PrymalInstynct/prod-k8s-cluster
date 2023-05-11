@@ -38,7 +38,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        # externalIPs: ["${SVC_PLEX_ADDR}"]
+        externalIPs: ["10.10.1.102"]
         externalTrafficPolicy: Local
         ports:
           http:
