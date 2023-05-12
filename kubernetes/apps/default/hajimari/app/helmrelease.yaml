@@ -43,8 +43,8 @@ spec:
           bookmarks:
             - name: Xen Orchestra
               url: "https://xoa.${SECRET_PRIVATE_DOMAIN}"
-            - name: Proxmox
-              url: "https://10.10.1.10:8006/"
+            - name: Harvester
+              url: "https://harvester.${SECRET_PRIVATE_DOMAIN}"
             - name: Unifi Controller
               url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
             - name: Cloudflare
