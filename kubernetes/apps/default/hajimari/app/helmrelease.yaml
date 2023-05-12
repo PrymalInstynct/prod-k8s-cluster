@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     hajimari:
-      title: Apps
+      title: Bookmarks
       lightTheme: horizon
       darkTheme: espresso
       alwaysTargetBlank: true
@@ -102,17 +102,12 @@ spec:
           - authentication
           - databases
           - default
-          - downloaders
           - flux-system
           - kube-tools
-          - longhorn-system
-          - media-automation
-          - media-servers
           - monitoring
           - networking
           - rook-ceph
           - storage
-          - web-tools
     ingress:
       main:
         enabled: true
