@@ -41,20 +41,18 @@ spec:
       globalBookmarks:
         - group: Home Lab
           bookmarks:
-            - name: Xen Orchestra
-              url: "https://xoa.${SECRET_PRIVATE_DOMAIN}"
             - name: Harvester
               url: "https://harvester.${SECRET_PRIVATE_DOMAIN}"
             - name: Unifi Controller
               url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
-            - name: Cloudflare
-              url: "https://dash.cloudflare.com/login"
+            - name: AdGuard Home
+              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5300/#"
             - name: NAS
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5000"
             - name: MinIO
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:9001"
-            - name: AdGuard Home
-              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5300/#"
+            - name: Cloudflare
+              url: "https://dash.cloudflare.com/login"
             - name: Print
               url: "https://print.${SECRET_PRIVATE_DOMAIN}"
         - group: Dev
