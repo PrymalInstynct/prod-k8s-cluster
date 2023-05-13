@@ -41,6 +41,8 @@ spec:
       globalBookmarks:
         - group: Home Lab
           bookmarks:
+            - name: Rancher
+              url: "https://rancher.${SECRET_PRIVATE_DOMAIN}"
             - name: Harvester
               url: "https://harvester.${SECRET_PRIVATE_DOMAIN}"
             - name: Unifi Controller
