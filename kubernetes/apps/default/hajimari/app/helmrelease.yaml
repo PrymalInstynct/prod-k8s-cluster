@@ -57,6 +57,8 @@ spec:
               url: "https://dash.cloudflare.com/login"
             - name: Print
               url: "https://print.${SECRET_PRIVATE_DOMAIN}"
+            - name: Home Assistant
+              url: "https://prymalhome.duckdns.org:8123/lovelace/alarm"
         - group: Dev
           bookmarks:
             - name: GitHub
