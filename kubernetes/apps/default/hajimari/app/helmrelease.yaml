@@ -45,6 +45,8 @@ spec:
               url: "https://rancher.${SECRET_PRIVATE_DOMAIN}"
             - name: Harvester
               url: "https://harvester.${SECRET_PRIVATE_DOMAIN}"
+            - name: Portainer
+              url: "https://10.10.10.234:9443/#!/auth"
             - name: Unifi Controller
               url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
             - name: AdGuard Home
