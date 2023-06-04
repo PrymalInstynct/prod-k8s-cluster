@@ -4,24 +4,28 @@ sonarr:
   standard:
     base_url: http://sonarr-uhd.default.svc.cluster.local
     api_key: !env_var SONARR_API_KEY
-    delete_old_custom_formats: false
+    delete_old_custom_formats: true
     quality_definition:
       type: series
     custom_formats:
+      - trash_ids: # Scene Groups
+          - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Tier 1
+          - a58f517a70193f8e578056642178419d # UHD Tier 2
+          - e71939fae578037e7aed3ee219bbe7c1 # UHD Tier 3
+        quality_profiles:
+          - name: Ultra-HD
       - trash_ids: # High Quality Audio Formats
           - 3cafb66171b47f226146a0770576870f # TrueHD
           - dcf3ec6938fa32445f590a4da84256cd # DTS-HD MA
           - 185f1dd7264c4562b9022d963ac37424 # DD+
         quality_profiles:
           - name: Ultra-HD
-            reset_unmatched_scores: true
       - trash_ids: # Good Quality Audio Formats
           - 1c1a4c5e823891c75bc50380a6866f73 # DTS
           - 240770601cc226190c367ef59aba7463 # ACC
           - c2998bd0d90ed5621d8df281e839436e # DD
         quality_profiles:
           - name: Ultra-HD
-            reset_unmatched_scores: true
       - trash_ids: # Atmos Audio Formats
           - 496f355514737f7d83bf7aa4d24f8169 # TrueHD Atmos
           - 417804f7f2c4308c1f4c5d380d4c4475 # Atmos (Undefined)
@@ -29,7 +33,6 @@ sonarr:
         quality_profiles:
           - name: Ultra-HD
             score: -3000
-            reset_unmatched_scores: true
       - trash_ids: # High Dynamic Range Formats
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
           - e61e28db95d22bedcadf030b8f156d96 # HDR
@@ -37,19 +40,13 @@ sonarr:
         quality_profiles:
           - name: Ultra-HD
             score: 500
-            reset_unmatched_scores: true
-      - trash_ids: # Scene Groups
-          - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Tier 1
-          - a58f517a70193f8e578056642178419d # UHD Tier 2
-          - e71939fae578037e7aed3ee219bbe7c1 # UHD Tier 3
       - trash_ids: # Other
           - 0d91270a7255a1e388fa85e959f359d8 # Freeleech
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack/Proper 2
         quality_profiles:
           - name: Ultra-HD
-            score: 50
-            reset_unmatched_scores: true
+            score: 500
       - trash_ids: # Unwanted
           - 923b6abef9b17f937fab56cfcf89e1f1 # DV (WEBDL) without fallback to HDR
           - ed38b889b31be83fda192888e2286d83 # BR-DISK
@@ -67,7 +64,6 @@ sonarr:
         quality_profiles:
           - name: Ultra-HD
             score: -10000
-            reset_unmatched_scores: true
 
 radarr:
   standard:
@@ -77,20 +73,24 @@ radarr:
     quality_definition:
       type: movie
     custom_formats:
+      - trash_ids: # Scene Groups
+          - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Tier 1
+          - a58f517a70193f8e578056642178419d # UHD Tier 2
+          - e71939fae578037e7aed3ee219bbe7c1 # UHD Tier 3
+        quality_profiles:
+          - name: Ultra-HD
       - trash_ids: # High Quality Audio Formats
           - 3cafb66171b47f226146a0770576870f # TrueHD
           - dcf3ec6938fa32445f590a4da84256cd # DTS-HD MA
           - 185f1dd7264c4562b9022d963ac37424 # DD+
         quality_profiles:
           - name: Ultra-HD
-            reset_unmatched_scores: true
       - trash_ids: # Good Quality Audio Formats
           - 1c1a4c5e823891c75bc50380a6866f73 # DTS
           - 240770601cc226190c367ef59aba7463 # ACC
           - c2998bd0d90ed5621d8df281e839436e # DD
         quality_profiles:
           - name: Ultra-HD
-            reset_unmatched_scores: true
       - trash_ids: # Atmos Audio Formats
           - 496f355514737f7d83bf7aa4d24f8169 # TrueHD Atmos
           - 417804f7f2c4308c1f4c5d380d4c4475 # Atmos (Undefined)
@@ -98,7 +98,6 @@ radarr:
         quality_profiles:
           - name: Ultra-HD
             score: -3000
-            reset_unmatched_scores: true
       - trash_ids: # High Dynamic Range Formats
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
           - e61e28db95d22bedcadf030b8f156d96 # HDR
@@ -106,19 +105,13 @@ radarr:
         quality_profiles:
           - name: Ultra-HD
             score: 500
-            reset_unmatched_scores: true
-      - trash_ids: # Scene Groups
-          - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Tier 1
-          - a58f517a70193f8e578056642178419d # UHD Tier 2
-          - e71939fae578037e7aed3ee219bbe7c1 # UHD Tier 3
       - trash_ids: # Other
           - 0d91270a7255a1e388fa85e959f359d8 # Freeleech
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack/Proper 2
         quality_profiles:
           - name: Ultra-HD
-            score: 50
-            reset_unmatched_scores: true
+            score: 500
       - trash_ids: # Unwanted
           - 923b6abef9b17f937fab56cfcf89e1f1 # DV (WEBDL) without fallback to HDR
           - ed38b889b31be83fda192888e2286d83 # BR-DISK
@@ -136,4 +129,3 @@ radarr:
         quality_profiles:
           - name: Ultra-HD
             score: -10000
-            reset_unmatched_scores: true
