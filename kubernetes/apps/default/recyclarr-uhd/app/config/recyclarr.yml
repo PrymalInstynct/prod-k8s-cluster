@@ -5,6 +5,10 @@ sonarr:
     base_url: http://sonarr-uhd.default.svc.cluster.local
     api_key: !env_var SONARR_API_KEY
     delete_old_custom_formats: true
+    replace_existing_custom_formats: true
+    quality_profiles:
+      - name: Ultra-HD
+        reset_unmatched_scores: true
     quality_definition:
       type: series
     custom_formats:
@@ -70,6 +74,10 @@ radarr:
     base_url: http://radarr-uhd.default.svc.cluster.local
     api_key: !env_var RADARR_API_KEY
     delete_old_custom_formats: true
+    replace_existing_custom_formats: true
+    quality_profiles:
+      - name: Ultra-HD
+        reset_unmatched_scores: true
     quality_definition:
       type: movie
     custom_formats:
