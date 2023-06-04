@@ -10,7 +10,7 @@ sonarr:
       - name: Ultra-HD
         reset_unmatched_scores: true
     quality_definition:
-      type: series
+      type: movie
     custom_formats:
       - trash_ids: # Scene Groups
           - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Tier 1
@@ -36,25 +36,26 @@ sonarr:
           - 1af239278386be2919e1bcee0bde047e # DD+ Atmos
         quality_profiles:
           - name: Ultra-HD
-            score: -3000
       - trash_ids: # High Dynamic Range Formats
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
           - e61e28db95d22bedcadf030b8f156d96 # HDR
           - 2a4d9069cc1fe3242ff9bdaebed239bb # HDR (Undefined)
+          - e23edd2482476e595fb990b12e7c609c # DV HDR10
+          - 58d6a88f13e2db7f5059c41047876f00 # DV
         quality_profiles:
           - name: Ultra-HD
-            score: 500
       - trash_ids: # Other
           - 0d91270a7255a1e388fa85e959f359d8 # Freeleech
           - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
           - ae43b294509409a6a13919dedd4764c4 # Repack/Proper 2
         quality_profiles:
           - name: Ultra-HD
-            score: 500
       - trash_ids: # Unwanted
           - 923b6abef9b17f937fab56cfcf89e1f1 # DV (WEBDL) without fallback to HDR
           - ed38b889b31be83fda192888e2286d83 # BR-DISK
-          - 90a6f9a284dff5103f6346090e6280c8 # LQ
+          - 3a3ff47579026e76d6504ebea39390de # Remux 1
+          - 9f98181fe5a3fbeb0cc29340da2a468a # Remux 2
+          - 8baaf0b3142bf4d94c42a724f034e27a # Remux 3
           - b8cd450cbfa689c0259a01d9e29ba3d6 # 3D
           - bfd8eb01832d646a0a89c4deb46f8564 # Upscaled
           - b17886cb4158d9fea189859409975758 # HDR10+ Boost (Samsung Proprietary Format)
@@ -68,6 +69,7 @@ sonarr:
         quality_profiles:
           - name: Ultra-HD
             score: -10000
+
 
 radarr:
   standard:
@@ -105,7 +107,6 @@ radarr:
           - 1af239278386be2919e1bcee0bde047e # DD+ Atmos
         quality_profiles:
           - name: Ultra-HD
-            score: -3000
       - trash_ids: # High Dynamic Range Formats
           - dfb86d5941bc9075d6af23b09c2aeecd # HDR10
           - e61e28db95d22bedcadf030b8f156d96 # HDR
