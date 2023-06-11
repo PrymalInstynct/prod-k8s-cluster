@@ -70,6 +70,12 @@ spec:
         tls:
           - hosts:
               - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups: [10000]
     volumeClaimTemplates:
       - name: playbook
         mountPath: /tmp/semaphore
