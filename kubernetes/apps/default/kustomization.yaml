@@ -15,7 +15,7 @@ resources:
   - ./radarr-uhd/ks.yaml
   - ./recyclarr-hd/ks.yaml
   - ./recyclarr-uhd/ks.yaml
-  - ./semaphore/ks.yaml
+  # - ./semaphore/ks.yaml
   - ./sonarr-hd/ks.yaml
   - ./sonarr-uhd/ks.yaml
   - ./theme-park/ks.yaml
