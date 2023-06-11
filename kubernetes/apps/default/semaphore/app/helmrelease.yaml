@@ -44,8 +44,9 @@ spec:
       annotations:
         reloader.stakater.com/auto: "true"
     image:
-      repository: semaphoreui/semaphore
-      tag: v2.8.90@sha256:1d05d7e30bf84fc47dcfa93f0df055212aca41e739de34bd04ccbd27aa2d6bec
+      # https://github.com/ansible-semaphore/semaphore/issues/1149
+      repository: ghcr.io/onedr0p/semaphore
+      tag: v2.8.90@sha256:d208bf54c8c94836d02cbc4ff1e808b177ca2b384f7029b3f81f152da4929373
     env:
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
       SEMAPHORE_LDAP_ACTIVATED: 'no'
@@ -70,21 +71,9 @@ spec:
         tls:
           - hosts:
               - *host
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: OnRootMismatch
-      supplementalGroups: [10000]
-    volumeClaimTemplates:
-      - name: playbook
-        mountPath: /tmp/semaphore
-        accessMode: ReadWriteOnce
-        size: 20Gi
-        storageClass: ceph-block
     resources:
       requests:
         cpu: 10m
-        memory: 250Mi
+        memory: 50Mi
       limits:
         memory: 2000Mi
