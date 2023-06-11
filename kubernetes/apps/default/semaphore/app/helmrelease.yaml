@@ -71,6 +71,13 @@ spec:
         tls:
           - hosts:
               - *host
+    volumeMounts:
+      - name: tz-config
+        mountPath: /etc/localtime
+    volumes:
+      - name: tz-config
+        hostPath:
+          path: /usr/share/zoneinfo/America/Denver
     resources:
       requests:
         cpu: 10m
