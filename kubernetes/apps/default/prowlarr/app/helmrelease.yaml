@@ -35,7 +35,7 @@ spec:
       repository: ghcr.io/onedr0p/prowlarr-develop
       tag: 1.5.2.3484@sha256:4ce09c121f1c5ce64dc626fb86b207a9f66bd7bd9b624a781cac79a42f7768ba
     env:
-      TZ: ${Time_Zone}
+      TZ: ${TIMEZONE}
       PROWLARR__INSTANCE_NAME: Prowlarr
       PROWLARR__PORT: &port 80
       PROWLARR__LOG_LEVEL: info
