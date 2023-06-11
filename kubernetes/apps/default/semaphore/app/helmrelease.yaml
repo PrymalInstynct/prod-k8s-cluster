@@ -1,0 +1,84 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.${SECRET_DOMAIN}/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: semaphore
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  dependsOn:
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
+    - name: cloudnative-pg
+      namespace: database
+  values:
+    initContainers:
+      01-init-db:
+        image: ghcr.io/onedr0p/postgres-init:14.8
+        imagePullPolicy: IfNotPresent
+        envFrom: &envFrom
+          - secretRef:
+              name: semaphore-secret
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: semaphoreui/semaphore
+      tag: v2.8.90@sha256:1d05d7e30bf84fc47dcfa93f0df055212aca41e739de34bd04ccbd27aa2d6bec
+    env:
+      SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
+      SEMAPHORE_LDAP_ACTIVATED: 'no'
+    envFrom: *envFrom
+    service:
+      main:
+        ports:
+          http:
+            port: 3000
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          hajimari.io/appName: "Semaphore"
+          hajimari.io/icon: mdi:ansible
+        hosts:
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    volumeClaimTemplates:
+      - name: playbook
+        mountPath: /tmp/semaphore
+        accessMode: ReadWriteOnce
+        size: 20Gi
+        storageClass: ceph-block
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 2000Mi
