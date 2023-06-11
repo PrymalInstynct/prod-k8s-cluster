@@ -48,6 +48,7 @@ spec:
       repository: ghcr.io/onedr0p/semaphore
       tag: v2.8.90@sha256:d208bf54c8c94836d02cbc4ff1e808b177ca2b384f7029b3f81f152da4929373
     env:
+      TZ: ${TIMEZONE}
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
       SEMAPHORE_LDAP_ACTIVATED: 'no'
     envFrom: *envFrom
@@ -71,13 +72,6 @@ spec:
         tls:
           - hosts:
               - *host
-    volumeMounts:
-      - name: tz-config
-        mountPath: /etc/localtime
-    volumes:
-      - name: tz-config
-        hostPath:
-          path: /usr/share/zoneinfo/America/Denver
     resources:
       requests:
         cpu: 10m
