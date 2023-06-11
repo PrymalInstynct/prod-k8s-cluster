@@ -28,8 +28,10 @@ resources:
   - ./intel.yaml
   - ./itzg.yaml
   - ./jetstack.yaml
+  - ./k8s-gateway.yaml
   - ./kubernetes-dashboard.yaml
   - ./kyverno.yaml
+  - ./metallb.yaml
   - ./metrics-server.yaml
   - ./nextcloud.yaml
   - ./node-feature-discovery.yaml
@@ -39,4 +41,5 @@ resources:
   - ./rook-ceph.yaml
   - ./stakater.yaml
   - ./stevehipwell.yaml
+  - ./weave-gitops.yaml
   - ./weaveworks.yaml
