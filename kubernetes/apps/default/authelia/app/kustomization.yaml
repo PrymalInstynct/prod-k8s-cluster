@@ -7,7 +7,6 @@ resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
   # - ./gatus.yaml
-  - ./secret.sops.yaml
 configMapGenerator:
   - name: authelia-configmap
     files:

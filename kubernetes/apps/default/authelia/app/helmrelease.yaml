@@ -87,8 +87,6 @@ spec:
     envFrom:
       - secretRef:
           name: authelia-secret
-      - secretRef:
-          name: authelia-2
     enableServiceLinks: false
     service:
       main:
