@@ -19,4 +19,4 @@ data:
           - "[STATUS] == 401"
           - "[BODY] == Unauthorized"
         alerts:
-          - type: pushover
+          - type: discord
