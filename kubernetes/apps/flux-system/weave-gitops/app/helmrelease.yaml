@@ -39,7 +39,7 @@ spec:
         hajimari.io/appName: "Weave GitOps"
         hajimari.io/icon: sawtooth-wave
       hosts:
-        - host: &host "gitops.${SECRET_DOMAIN}"
+        - host: &host "gitops.prymal.info"
           paths:
             - path: /
               pathType: Prefix

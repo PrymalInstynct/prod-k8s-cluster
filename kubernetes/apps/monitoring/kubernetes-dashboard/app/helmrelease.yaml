@@ -42,7 +42,7 @@ spec:
         hajimari.io/appName: "K8s Dashboard"
         hajimari.io/icon: mdi:kubernetes
       hosts:
-        - &host "kubernetes.${SECRET_DOMAIN}"
+        - &host "kubernetes.prymal.info"
       tls:
         - hosts:
             - *host

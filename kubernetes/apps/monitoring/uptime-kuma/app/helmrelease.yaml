@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.${SECRET_DOMAIN}/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -72,7 +72,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
+          external-dns.alpha.kubernetes.io/target: ingress.prymal.info
           hajumari.io/name: "Update Kuma"
           hajimari.io/icon: mdi:home-analytics
           nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
@@ -92,7 +92,7 @@ spec:
               proxy_cache_bypass $http_upgrade;
             }
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.prymal.info"
             paths:
               - path: /
                 pathType: Prefix

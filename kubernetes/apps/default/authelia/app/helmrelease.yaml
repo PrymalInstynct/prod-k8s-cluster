@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.${SECRET_DOMAIN}/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+# yaml-language-server: $schema=https://kubernetes-schemas.prymal.info/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -65,7 +65,7 @@ spec:
       AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USERS_FILTER: (&({username_attribute}={input})(objectClass=person))
       AUTHELIA_AUTHENTICATION_BACKEND_PASSWORD_RESET_DISABLE: "true"
       AUTHELIA_AUTHENTICATION_BACKEND_REFRESH_INTERVAL: 1m
-      AUTHELIA_DEFAULT_REDIRECTION_URL: https://auth.${SECRET_DOMAIN}
+      AUTHELIA_DEFAULT_REDIRECTION_URL: https://auth.prymal.info
       AUTHELIA_DUO_API_DISABLE: "true"
       AUTHELIA_LOG_LEVEL: info
       AUTHELIA_NOTIFIER_DISABLE_STARTUP_CHECK: "true"
@@ -74,10 +74,10 @@ spec:
       AUTHELIA_NOTIFIER_SMTP_DISABLE_STARTTLS: "true"
       AUTHELIA_NOTIFIER_SMTP_HOST: 10.10.1.30
       AUTHELIA_NOTIFIER_SMTP_PORT: 25
-      AUTHELIA_NOTIFIER_SMTP_SENDER: Authelia <authelia@${SECRET_DOMAIN}>
+      AUTHELIA_NOTIFIER_SMTP_SENDER: Authelia <authelia@prymal.info>
       AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
       AUTHELIA_SERVER_PORT: &port 80
-      AUTHELIA_SESSION_DOMAIN: ${SECRET_DOMAIN}
+      AUTHELIA_SESSION_DOMAIN: prymal.info
       AUTHELIA_SESSION_NAME: authelia-home-prymal
       AUTHELIA_SESSION_REDIS_DATABASE_INDEX: 14
       AUTHELIA_SESSION_REDIS_HOST: redis.database.svc.cluster.local
@@ -127,7 +127,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
+          external-dns.alpha.kubernetes.io/target: ingress.prymal.info
           nginx.ingress.kubernetes.io/configuration-snippet: |
             add_header Cache-Control "no-store";
             add_header Pragma "no-cache";
@@ -135,7 +135,7 @@ spec:
             add_header X-XSS-Protection "1; mode=block";
           hajimari.io/icon: mdi:shield-account
         hosts:
-          - host: &host auth.${SECRET_DOMAIN}
+          - host: &host auth.prymal.info
             paths:
               - path: /
                 pathType: Prefix
