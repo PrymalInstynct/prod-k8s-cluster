@@ -13,6 +13,10 @@ ui:
 alerting:
   discord:
     webhook-url: ${DISCORD_WEBHOOK_URL}
+    default-alert:
+      send-on-resolved: true
+      failure-threshold: 5
+      success-threshold: 3
 connectivity:
   checker:
     target: 1.1.1.1:53
