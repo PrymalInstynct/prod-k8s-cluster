@@ -11,7 +11,7 @@ data:
     endpoints:
       - name: letsblockit
         group: public
-        url: https://letsblockit.prymal.info/list/091c0d79-9b5b-4682-a052-9a195fed2b26.txt
+        url: https://letsblockit.prymal.info/lists
         interval: 1m
         client:
           dns-resolver: tcp://1.1.1.1:53
