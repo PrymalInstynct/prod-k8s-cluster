@@ -21,10 +21,12 @@ access_control:
         - '172.16.0.0/12'
         - '192.168.0.0/16'
   rules:
-    - domain: 'letsblockit.prymal.info'
+    - domain: letsblockit.prymal.info
+      policy: bypass
       resources:
         - '^/lists.*'
-      policy: bypass
+      networks:
+        - 'internal'
 
 identity_providers:
   oidc:
