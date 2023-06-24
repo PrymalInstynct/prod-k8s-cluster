@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 sonarr:
-  standard:
+  ulta_high_def:
     base_url: http://sonarr-uhd.default.svc.cluster.local
     api_key: !env_var SONARR_API_KEY
     delete_old_custom_formats: true
@@ -72,7 +72,7 @@ sonarr:
 
 
 radarr:
-  standard:
+  ulta_high_def:
     base_url: http://radarr-uhd.default.svc.cluster.local
     api_key: !env_var RADARR_API_KEY
     delete_old_custom_formats: true
