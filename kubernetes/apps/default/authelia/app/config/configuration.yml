@@ -16,17 +16,11 @@ access_control:
   default_policy: two_factor
   networks:
     - name: internal
-      networks:
-        - '10.0.0.0/8'
-        - '172.16.0.0/12'
-        - '192.168.0.0/16'
+      networks: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
   rules:
-    - domain: letsblockit.prymal.info
+    - domain: ["letsblockit.devbu.io"]
+      resources: ["^/lists.*$"]
       policy: bypass
-      resources:
-        - '^/lists.*'
-      networks:
-        - 'internal'
 
 identity_providers:
   oidc:
