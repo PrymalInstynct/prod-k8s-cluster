@@ -37,6 +37,9 @@ spec:
     - name: thanos
       namespace: monitoring
   values:
+    envFrom:
+      - secretRef:
+          name: kube-prometheus-stack-secret
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       config:
