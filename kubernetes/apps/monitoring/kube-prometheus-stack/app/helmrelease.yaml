@@ -37,9 +37,6 @@ spec:
     - name: thanos
       namespace: monitoring
   values:
-    envFrom:
-      - secretRef:
-          name: kube-prometheus-stack-secret
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       config:
@@ -49,7 +46,7 @@ spec:
           - name: 'null' # quote
           - name: discord
             discord_configs:
-              - webhook_url: ${DISCORD_WEBHOOK_URL}
+              - webhook_url: ${SECRET_DISCORD_WEBHOOK_URL}
         route:
           group_by: ["alertname", "job"]
           group_wait: 1m
