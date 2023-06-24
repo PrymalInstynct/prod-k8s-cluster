@@ -48,7 +48,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          hajimari.io/enable: "false"
+          hajimari.io/enable: "true"
         hostname: &host thanos-query-frontend.prymal.info
         tls: true
         extraTls:
