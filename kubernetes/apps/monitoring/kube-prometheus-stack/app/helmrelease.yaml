@@ -215,4 +215,4 @@ spec:
           - job_name: minio
             metrics_path: /minio/v2/metrics/cluster
             static_configs:
-              - targets: ["scorpion.prymal.linux:9000"] # nas
+              - targets: ["scorpion.prymal.linux:9001"] # nas
