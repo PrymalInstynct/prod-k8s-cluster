@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/onedr0p/plex
-      tag: 1.32.3.7192-7aa441827@sha256:37d2f31b16caf3faa4e0e6a6a9f0cc838d5f4dc878ef3b2c326e726026e73ec4
+      tag: 1.32.4.7195-7c8f9d3b6@sha256:39c4ad71d92790d54b2d14be5fdabca940591ab2b9f8291d02653cd4f80d9d4f
       imagePullPolicy: Always
     env:
       TZ: ${TIMEZONE}
@@ -83,6 +83,10 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
+      local:
+        enabled: true
+        type: emptyDir
+        mountPath: /.local
     nodeSelector:
       intel.feature.node.kubernetes.io/gpu: "true"
     resources:
@@ -93,3 +97,15 @@ spec:
       limits:
         gpu.intel.com/i915: 1
         memory: 10000Mi
+    sidecars:
+      auto-languages:
+        image: docker.io/remirigal/plex-auto-languages:v1.2.1
+        imagePullPolicy: IfNotPresent
+        env:
+          - { name: PLEX_URL, value: http://localhost:32400 }
+          - { name: REFRESH_LIBRARY_ON_SCAN, value: "false" }
+        envFrom:
+          - secretRef:
+              name: plex-auto-languages-secret
+        volumeMounts:
+          - { name: local, mountPath: /.local }
