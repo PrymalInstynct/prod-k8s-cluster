@@ -28,4 +28,4 @@ spec:
     keepHistory: false
   values:
     monitoring:
-      enabled: false
+      enabled: true
