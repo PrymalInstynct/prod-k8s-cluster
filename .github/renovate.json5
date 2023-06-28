@@ -21,7 +21,7 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "ignorePaths": ["archive/**"],
   "rebaseWhen": "conflicted",
-  "schedule": ["every saturday"],
+  "schedule": ["before 4am"],
   "pre-commit": {
     "enabled": true
   },
