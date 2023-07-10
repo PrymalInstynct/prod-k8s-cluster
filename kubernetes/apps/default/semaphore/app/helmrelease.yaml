@@ -46,7 +46,7 @@ spec:
     image:
       # https://github.com/ansible-semaphore/semaphore/issues/1149
       repository: ghcr.io/onedr0p/semaphore
-      tag: v2.8.90@sha256:d208bf54c8c94836d02cbc4ff1e808b177ca2b384f7029b3f81f152da4929373
+      tag: v2.8.91@sha256:f6ca04d38edd1dca39987dd646ce433d2c1a2cb4743355045cc1e9d0e5463e3e
     env:
       TZ: ${TIMEZONE}
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
