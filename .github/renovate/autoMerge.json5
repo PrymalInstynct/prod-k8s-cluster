@@ -7,7 +7,7 @@
       "automerge": true,
       "ignoreTests": true,
       "automergeType": "branch",
-      "matchUpdateTypes": ["digest", "patch"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p"]
     },
     {
@@ -16,7 +16,7 @@
       "automerge": true,
       "ignoreTests": true,
       "automergeType": "branch",
-      "matchUpdateTypes": ["patch"]
+      "matchUpdateTypes": ["patch", "minor"]
     },
     {
       "description": "Auto merge GitHub Actions",
