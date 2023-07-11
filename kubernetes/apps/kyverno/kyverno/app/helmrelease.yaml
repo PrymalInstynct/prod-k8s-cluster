@@ -30,7 +30,7 @@ spec:
     crds:
       install: true
     grafana:
-      enabled: false
+      enabled: true
       annotations:
         grafana_folder: System
     backgroundController:
@@ -43,6 +43,13 @@ spec:
                 - ""
               resources:
                 - pods
+              verbs:
+                - create
+                - update
+                - patch
+                - delete
+                - get
+                - list
     cleanupController:
       serviceMonitor:
         enabled: true
