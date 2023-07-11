@@ -51,3 +51,8 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
+    cert-manager:
+      enabled: false
+      installCRDs: false
+    nginx:
+      enabled: false
