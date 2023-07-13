@@ -45,6 +45,7 @@ spec:
     envFrom:
       - secretRef:
           name: adguardhome-sync-secret
+    command: run
     service:
       main:
         ports:
