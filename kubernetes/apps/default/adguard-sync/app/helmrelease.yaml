@@ -32,25 +32,22 @@ spec:
     image:
       repository: ghcr.io/bakito/adguardhome-sync
       tag: v0.4.14@sha256:f54742a0fc5bfc323b484ea4b863188b7798a78a090611eb1c0e5463cad0937b
-    env:
-      LOG_LEVEL: info
-      ORIGIN_URL: http://10.10.1.30:5300
-      ORIGIN_USERNAME: admin
-      REPLICA_URL: http://10.10.1.31
-      REPLICA_USERNAME: admin
-      REPLICA_PASSWORD:
-      CRON: '*/10 * * * *' # run every 10 minutes
-      RUNONSTART: true
-      API_PORT: 8080
     envFrom:
       - secretRef:
           name: adguardhome-sync-secret
-    command: run
     service:
       main:
         ports:
           http:
             port: &port 8080
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: adguardhome-sync-configmap
+        subPath: adguardhome-sync.yaml
+        mountPath: /config/adguardhome-sync.yaml
+        readOnly: false
     resources:
       requests:
         cpu: 5m
