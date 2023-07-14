@@ -48,6 +48,8 @@ spec:
         subPath: adguardhome-sync.yaml
         mountPath: /config/adguardhome-sync.yaml
         readOnly: false
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: adguardhome-sync-settings
     resources:
       requests:
         cpu: 5m
