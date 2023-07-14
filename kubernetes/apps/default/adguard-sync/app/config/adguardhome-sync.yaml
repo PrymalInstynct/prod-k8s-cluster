@@ -7,19 +7,14 @@ runOnStart: true
 
 origin:
   # url of the origin instance
-  url: http://10.10.1.30:5300
+  url: http://10.10.1.31
   username: admin
   password: "${ORIGIN_PASSWORD}"
 
-# replicas instances (optional, if more than one)
-replicas:
-  # url of the replica instance
-  - url: http://10.10.1.31
-    username: admin
-    password: "${REPLICA_PASSWORD}"
-  - url: http://10.10.1.32
-    username: admin
-    password: "${REPLICA_PASSWORD}"
+replica:
+  url: http://10.10.1.32
+  username: admin
+  password: "${REPLICA_PASSWORD}"
 
 # Configure the sync API server, disabled if api port is 0
 api:
