@@ -10,4 +10,4 @@ resources:
   - ./smartctl-exporter/ks.yaml
   - ./thanos/ks.yaml
   - ./unpoller/ks.yaml
-  # - ./uptime-kuma/ks.yaml
+  - ./uptime-kuma/ks.yaml
