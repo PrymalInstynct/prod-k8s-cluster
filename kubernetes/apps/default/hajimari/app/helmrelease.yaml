@@ -41,20 +41,22 @@ spec:
       globalBookmarks:
         - group: Home Lab
           bookmarks:
-            - name: Rancher
-              url: "https://rancher.${SECRET_PRIVATE_DOMAIN}"
             - name: Harvester
               url: "https://harvester.${SECRET_PRIVATE_DOMAIN}"
-            - name: Portainer
-              url: "https://10.10.10.234:9443/#!/auth"
             - name: Unifi Controller
               url: "https://unifi.${SECRET_PRIVATE_DOMAIN}/login?redirect=%2F"
-            - name: AdGuard Home
+            - name: AdGuard Home - Container
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5300/#"
+            - name: AdGuard Home - RPI 1
+              url: "http://10.10.1.31"
+            - name: AdGuard Home - RPI 2
+              url: "http://10.10.1.32"
             - name: NAS
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:5000"
             - name: MinIO
               url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:9001"
+            - name: Web Server
+              url: "http://scorpion.${SECRET_PRIVATE_DOMAIN}:7777"
             - name: Cloudflare
               url: "https://dash.cloudflare.com/login"
             - name: Print
