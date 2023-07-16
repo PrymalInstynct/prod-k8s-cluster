@@ -34,6 +34,18 @@ spec:
         envFrom: &envFrom
           - secretRef:
               name: gatus-secret
+      02-config-sync:
+        image: ghcr.io/kiwigrid/k8s-sidecar:1.25.0
+        imagePullPolicy: IfNotPresent
+        env:
+          - { name: FOLDER, value: /config }
+          - { name: LABEL, value: gatus.io/enabled }
+          - { name: NAMESPACE, value: ALL }
+          - { name: RESOURCE, value: both }
+          - { name: UNIQUE_FILENAMES, value: "true" }
+          - { name: METHOD, value: LIST }
+        volumeMounts:
+          - { name: config, mountPath: /config }
     controller:
       annotations:
         reloader.stakater.com/auto: "true"
@@ -65,7 +77,6 @@ spec:
         ingressClassName: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: ingress.prymal.info
-          hajimari.io/icon: simple-icons:googleoptimize
         hosts:
           - host: &host status.prymal.info
             paths:
